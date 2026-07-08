@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "pages:build": "npx @opennextjs/cloudflare build --skipWranglerConfigCheck",
-    "deploy": "npm run build && npm run pages:build && wrangler pages deploy .open-next/worker"
+    "deploy": "npm run build && npm run pages:build && npx @opennextjs/cloudflare deploy"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.20.1",
