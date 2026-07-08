@@ -32,7 +32,7 @@ export default function StarMakerScraper() {
       } else {
         setStatus({ type: 'error', msg: data.error || 'An error occurred during download.' });
       }
-    } catch (err) {
+    } catch {
       setStatus({ type: 'error', msg: 'Network error. Make sure the backend server is running.' });
     }
   };
@@ -59,7 +59,7 @@ export default function StarMakerScraper() {
           <button
             type="submit"
             disabled={status.type === 'loading'}
-            className="w-full py-4 bg-gradient-to-r from-orange-600 to-red-800 rounded-lg font-bold hover:scale-[1.01] transition-transform shadow-[0_0_20px_rgba(255,100,0,0.2)] active:scale-95 text-white disabled:opacity-70 flex justify-center items-center gap-3 uppercase tracking-wider"
+            className="w-full py-4 bg-linear-to-r from-orange-600 to-red-800 rounded-lg font-bold hover:scale-[1.01] transition-transform shadow-[0_0_20px_rgba(255,100,0,0.2)] active:scale-95 text-white disabled:opacity-70 flex justify-center items-center gap-3 uppercase tracking-wider"
           >
             {status.type === 'loading' ? (
               <>
@@ -91,7 +91,7 @@ export default function StarMakerScraper() {
           <a
             href={status.fileUrl}
             download={status.filename}
-            className="block w-full py-3 text-center text-white text-lg font-cinzel font-bold rounded-lg transition-all bg-gradient-to-br from-green-600 to-emerald-800 hover:scale-[1.01] active:scale-95 mb-4 uppercase tracking-wider"
+            className="block w-full py-3 text-center text-white text-lg font-cinzel font-bold rounded-lg transition-all bg-linear-to-br from-green-600 to-emerald-800 hover:scale-[1.01] active:scale-95 mb-4 uppercase tracking-wider"
           >
             Save to Device
           </a>
