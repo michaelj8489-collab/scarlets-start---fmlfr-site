@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "pages:build": "npx @opennextjs/cloudflare build",
+    "pages:build": "npx @opennextjs/cloudflare build --skipWranglerConfigCheck",
     "deploy": "npm run build && npm run pages:build && wrangler pages deploy .open-next/worker"
   },
   "dependencies": {
