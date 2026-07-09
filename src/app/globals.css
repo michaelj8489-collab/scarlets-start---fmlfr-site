@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Stack Sans Notch";
+  src: url("/fonts/StackSansNotch-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme inline {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
   --color-scarlet: #c1121f;
 
-  --font-serif: "Times New Roman", Georgia, serif;
+  --font-serif: "Stack Sans Notch", "Times New Roman", Georgia, serif;
   --font-sans: Arial, Helvetica, sans-serif;
 }
 
@@ -20,4 +28,11 @@ body {
   min-height: 100svh;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+}
+
+h1,
+h2,
+h3,
+.font-serif {
+  font-family: "Stack Sans Notch", "Times New Roman", Georgia, serif;
 }
