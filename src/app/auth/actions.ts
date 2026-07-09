@@ -39,6 +39,8 @@ export async function signup(formData: FormData) {
   const username = formData.get('username') as string
   const email = formData.get('email') as string
   const password = formData.get('password') as string
+  const accountType = formData.get('accountType') as string
+  const role = accountType === 'artist' ? 'artist' : 'listener'
 
   if (!email || !password || !username) {
     redirect('/signup?message=Username, Email, and Password are required.')
@@ -50,6 +52,7 @@ export async function signup(formData: FormData) {
     options: {
       data: {
         username: username,
+        role,
       }
     }
   })

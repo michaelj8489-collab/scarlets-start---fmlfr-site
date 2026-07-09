@@ -1,0 +1,53 @@
+PHASE 1
+
+✔ Website
+
+✔ Auth
+
+⬜ Homepage
+
+⬜ PWA
+
+⬜ Artist Profiles
+
+⬜ Submission System
+
+⬜ Dashboard
+
+--------------------------------
+
+PHASE 2
+
+⬜ Chat
+
+⬜ Push Notifications
+
+⬜ Shows
+
+⬜ Membership
+
+--------------------------------
+
+PHASE 3
+
+⬜ Stream Suite API
+
+⬜ Scraper Worker
+
+⬜ Rotation System
+
+--------------------------------
+
+PHASE 4
+
+⬜ Michael Cloud
+
+⬜ Docker
+
+⬜ Coolify
+
+⬜ VPS
+
+⬜ Monitoring
+
+⬜ Backups

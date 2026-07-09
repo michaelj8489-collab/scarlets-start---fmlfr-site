@@ -1,0 +1,1224 @@
+SCARLET STAR BROADCASTING - MASTER BUILD BLUEPRINT
+Last Updated: 2026-07-08
+Project Owner: Michael J Cox
+
+============================================================
+1. PROJECT IDENTITY
+============================================================
+
+Project Name:
+Scarlet Star Broadcasting
+
+Short Brand Name:
+Scarlet Star
+
+Core Mission:
+Scarlet Star exists to give StarMaker singers and cover artists a professional stage, a community, and a way to be discovered through live radio shows, artist pages, featured spotlights, and a 24/7 station loop.
+
+This is not just a radio website.
+This is an artist discovery platform, internet radio station, live show hub, and future integration point for Stream Suite.
+
+Primary Brand Feeling:
+Premium, cinematic, modern, dark, music-focused, community-driven.
+
+Visual Identity:
+- Black / near-black background
+- Deep scarlet red as the primary accent
+- Elegant, dramatic, polished
+- The logo is the design anchor
+- The site should feel like a premium media platform, not a generic website
+
+Brand Keywords:
+Scarlet, Star, Broadcasting, Radio, Stage, Spotlight, Artist, Live, Covers, Community, Discovery.
+
+Primary Motto / Positioning:
+"Giving cover artists a stage."
+
+Alternative positioning phrases:
+- "The home for StarMaker artists."
+- "Where cover artists get heard."
+- "A live stage for rising voices."
+- "Your voice. Your stage. Your spotlight."
+
+============================================================
+2. GOLDEN RULE
+============================================================
+
+The number one design and development question is:
+
+"How do we make this so simple that people do not just use it, they enjoy using it and never want to go back?"
+
+Every feature should reduce friction.
+
+Do not build features just because they are cool.
+Build features that help artists, DJs, listeners, or admins do something more easily.
+
+Priority users:
+1. Artists / singers
+2. DJs / show hosts
+3. Listeners
+4. Admins / station staff
+
+============================================================
+3. CURRENT PROJECT STATUS
+============================================================
+
+The project is a Next.js website already pushed to GitHub.
+
+Current repo:
+https://github.com/michaelj8489-collab/scarlets-start---fmlfr-site.git
+
+Current live deployment:
+https://scarlets-start-fmlfr-site.vercel.app/
+
+Current known stack:
+- Next.js
+- React
+- TypeScript
+- Supabase
+- Supabase Auth using username/password/email
+- GitHub repository
+- Vercel deployment
+
+Do not remove the existing Supabase auth setup unless specifically instructed.
+
+============================================================
+4. TECHNOLOGY DIRECTION
+============================================================
+
+Frontend:
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS preferred if already installed or appropriate
+- Component-based structure
+- Mobile-first responsive design
+- PWA-ready architecture
+
+Backend / Database:
+- Supabase for auth, database, and storage
+- PostgreSQL through Supabase
+- Row Level Security should be used where appropriate
+- Admin-only operations must be protected
+
+Future Integrations:
+- Zeno.fm station player / stream embed
+- Stripe or payment provider for paid membership tier
+- Push notifications
+- Stream Suite API integration
+- Python StarMaker media processing worker
+- Live chat
+- Artist pages
+- Show pages
+- Submission queue
+- 24/7 rotation candidate system
+
+Important:
+Do not put secrets in code.
+Use environment variables.
+
+Expected environment variables may include:
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY
+NEXT_PUBLIC_SITE_URL
+STRIPE_SECRET_KEY
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+STRIPE_WEBHOOK_SECRET
+ZENO_STREAM_URL
+ZENO_PLAYER_URL
+
+Never expose SUPABASE_SERVICE_ROLE_KEY to the browser.
+
+============================================================
+5. BUSINESS MODEL AND LEGAL POSITIONING GUARDRAILS
+============================================================
+
+Important rule:
+Paid subscriptions are NOT payment for radio plays.
+
+The paid membership must be presented as payment for artist services, such as:
+- Dedicated artist page
+- Artist bio
+- Embedded media player with top StarMaker covers
+- Custom artist graphics/designs
+- Social media links
+- Featured artist show eligibility
+- Promotional spotlight
+- Community visibility
+
+Free and paid users may be heard on live shows or station programming depending on site rules.
+
+Song plays must not be phrased as something users are directly buying.
+
+Avoid wording like:
+- "Pay $20 to get your songs played"
+- "Buy radio plays"
+- "Guaranteed station rotation"
+- "Pay for airplay"
+
+Use wording like:
+- "Membership includes a professional artist page and promotional features."
+- "Members may submit performances for consideration."
+- "Selected submissions may be featured in live shows or rotation."
+- "Station programming is curated by Scarlet Star staff."
+
+Artist consent:
+When artists submit songs, they must agree that they have permission to submit the recording and authorize Scarlet Star to play their vocal performance/recording on Scarlet Star programming.
+
+The consent checkbox should be explicit.
+
+Example consent language:
+"I confirm that I am authorized to submit this performance and I grant Scarlet Star Broadcasting permission to stream, feature, and promote this submitted recording as part of Scarlet Star programming, artist features, live shows, and station-related promotional content."
+
+There should eventually be:
+- Terms of Service
+- Privacy Policy
+- Artist Submission Agreement
+- Takedown / removal request process
+
+============================================================
+6. CORE MVP GOALS
+============================================================
+
+The first major goal is not to build every dream feature.
+
+The first major goal is to launch a working Scarlet Star MVP that can attract artists and listeners.
+
+MVP must include:
+
+1. Beautiful public teaser homepage
+2. Working Supabase authentication
+3. PWA-ready mobile-first experience
+4. Free listener signup
+5. Paid singer/artist signup path
+6. Private authenticated radio/listen section4. Artist signup / member onboarding
+7. Artist profile pages
+8. Song submission form
+9. Admin review dashboard
+10. Basic show schedule
+11. Featured artist area
+12. Basic chat or placeholder for chat
+13. Clear membership explanation
+14. Legal consent checkbox for submissions
+
+MVP should communicate immediately:
+- Music is happening here
+- Artists are being discovered here
+- People can participate here
+
+============================================================
+7. PHASED ROADMAP
+============================================================
+
+PHASE 1 - PUBLIC WEBSITE FOUNDATION
+
+Pages:
+- Home
+- Listen Live
+- About
+- Artists
+- Shows
+- Membership
+- Login
+- Signup
+- Contact
+- Terms
+- Privacy
+
+Homepage sections:
+- Hero with logo and strong tagline
+- Listen live / now playing block
+- What Scarlet Star is
+- Featured artists
+- Upcoming shows
+- How it works
+- Membership call-to-action
+- Submit / join call-to-action
+
+PHASE 2 - AUTH AND USER PROFILES
+
+User account types:
+- Listener
+- Artist
+- DJ / Host
+- Admin
+
+Profile requirements:
+- Display name
+- Username
+- Email
+- Avatar
+- Bio
+- Social links
+- Role
+- Membership status
+- Created date
+
+Artist profile requirements:
+- Artist name
+- Bio
+- Profile image
+- Banner image
+- Top 5-6 StarMaker links or media embeds
+- Social links
+- Featured status
+- Public artist URL
+- Submitted songs
+- Featured show history
+
+PHASE 3 - SONG SUBMISSIONS
+
+Submission form:
+- StarMaker song link
+- Song title
+- Original artist
+- Performing artist / member
+- Category: solo, duet, group, original, cover
+- Notes to DJ
+- Consent checkbox
+- Submit button
+
+Submission statuses:
+- Pending review
+- Approved
+- Rejected
+- Needs info
+- Played live
+- Added to rotation candidate list
+- Added to 24/7 loop
+- Archived
+
+Admin actions:
+- Preview
+- Approve
+- Reject
+- Add notes
+- Mark as played
+- Mark as rotation candidate
+- Add to loop
+- Remove from loop
+
+PHASE 4 - SHOW SYSTEM
+
+Show pages:
+- Show title
+- Host/DJ
+- Description
+- Schedule
+- Live status
+- Featured artists
+- Related submissions
+- Chat link
+- Listen button
+
+Show types:
+- Featured Artist Show
+- Live Drop Show
+- Weekly Spotlight
+- Community Choice
+- DJ-hosted specialty shows
+
+PHASE 5 - STREAM SUITE INTEGRATION
+
+Future goal:
+Stream Suite should be able to connect directly to Scarlet Star.
+
+Stream Suite should eventually access:
+- DJ login
+- Live show information
+- Live chat
+- Song submission queue
+- Artist details
+- Now playing updates
+- Show schedule
+- Push notifications
+- Accepted song drops
+
+Possible future API routes:
+GET /api/streamsuite/show/current
+GET /api/streamsuite/submissions
+POST /api/streamsuite/submissions/{id}/accept
+POST /api/streamsuite/submissions/{id}/reject
+POST /api/streamsuite/now-playing
+GET /api/streamsuite/chat
+POST /api/streamsuite/chat/send
+
+Do not build all of this in MVP unless instructed.
+Design the database and code structure so this can be added later.
+
+PHASE 6 - ADVANCED FEATURES
+
+Future features:
+- Live chat rooms
+- Whispers/private messages
+- GIF support
+- File attachments
+- Voice messages
+- Push notifications
+- Artist followers
+- Notification when an artist's song goes live
+- Leaderboards
+- Badges
+- Rotation achievements
+- Community voting
+- Direct media uploads
+- StarMaker scraper worker integration
+- DJ queue builder
+- Automatic "now playing"
+- Show archives
+- MP3/MP4 show archive support
+- Analytics dashboard
+
+============================================================
+8. USER ROLES AND PERMISSIONS
+============================================================
+
+Listener:
+- Can listen
+- Can view public artist pages
+- Can join public chat if authenticated
+- Can follow artists in the future
+
+Artist:
+- Can do everything a listener can do
+- Can create/edit artist profile
+- Can submit songs
+- Can view submission status
+- Can manage top songs/media links
+- Can see featured history
+- Can receive notifications
+
+DJ / Host:
+- Can view approved submissions
+- Can manage show queue
+- Can mark songs as played
+- Can host assigned shows
+- Can interact with chat
+- Can update now playing
+
+Admin:
+- Full access
+- Manage users
+- Manage artists
+- Manage submissions
+- Manage shows
+- Manage station loop candidates
+- Manage featured artists
+- Moderate chat
+- Edit site content where applicable
+
+============================================================
+9. DATABASE BLUEPRINT
+============================================================
+
+Use Supabase/PostgreSQL.
+
+Suggested tables:
+
+profiles
+- id uuid primary key references auth.users
+- username text unique
+- display_name text
+- email text
+- avatar_url text
+- bio text
+- role text
+- created_at timestamp
+- updated_at timestamp
+
+artist_profiles
+- id uuid primary key
+- user_id uuid references profiles(id)
+- artist_name text
+- slug text unique
+- bio text
+- banner_url text
+- avatar_url text
+- starmaker_profile_url text
+- facebook_url text
+- instagram_url text
+- tiktok_url text
+- youtube_url text
+- website_url text
+- membership_status text
+- featured boolean
+- created_at timestamp
+- updated_at timestamp
+
+artist_media
+- id uuid primary key
+- artist_id uuid references artist_profiles(id)
+- title text
+- original_artist text
+- starmaker_url text
+- media_url text
+- embed_url text
+- sort_order int
+- is_top_song boolean
+- created_at timestamp
+
+song_submissions
+- id uuid primary key
+- artist_id uuid references artist_profiles(id)
+- submitted_by uuid references profiles(id)
+- title text
+- original_artist text
+- starmaker_url text
+- media_url text
+- submission_type text
+- notes text
+- status text
+- consent_given boolean
+- consent_timestamp timestamp
+- admin_notes text
+- reviewed_by uuid references profiles(id)
+- reviewed_at timestamp
+- played_at timestamp
+- added_to_loop boolean
+- created_at timestamp
+- updated_at timestamp
+
+shows
+- id uuid primary key
+- title text
+- slug text unique
+- description text
+- host_id uuid references profiles(id)
+- show_type text
+- scheduled_start timestamp
+- scheduled_end timestamp
+- is_live boolean
+- cover_image_url text
+- created_at timestamp
+- updated_at timestamp
+
+show_submissions
+- id uuid primary key
+- show_id uuid references shows(id)
+- submission_id uuid references song_submissions(id)
+- queue_order int
+- status text
+- played_at timestamp
+- created_at timestamp
+
+station_rotation
+- id uuid primary key
+- submission_id uuid references song_submissions(id)
+- artist_id uuid references artist_profiles(id)
+- active boolean
+- added_by uuid references profiles(id)
+- added_at timestamp
+- removed_at timestamp
+- notes text
+
+chat_rooms
+- id uuid primary key
+- name text
+- slug text unique
+- room_type text
+- created_at timestamp
+
+chat_messages
+- id uuid primary key
+- room_id uuid references chat_rooms(id)
+- user_id uuid references profiles(id)
+- message text
+- attachment_url text
+- message_type text
+- created_at timestamp
+
+notifications
+- id uuid primary key
+- user_id uuid references profiles(id)
+- title text
+- body text
+- type text
+- read boolean
+- link_url text
+- created_at timestamp
+
+============================================================
+10. DESIGN SYSTEM
+============================================================
+
+Primary colors:
+- Background: near-black / black
+- Primary accent: deep scarlet red
+- Secondary accent: darker crimson
+- Text: white / off-white
+- Muted text: gray
+- Borders: dark gray / subtle red glow
+
+Design mood:
+- Cinematic
+- Premium
+- Music-focused
+- Elegant
+- Dark glass panels
+- Subtle gradients
+- Soft red glows
+- Large hero sections
+- Strong typography
+
+Avoid:
+- Generic Bootstrap look
+- Bright flat red
+- Childish music graphics
+- Cheap nightclub look
+- Overcrowded layouts
+- Too many animations
+- Anything that hurts readability
+
+Logo usage:
+- Use the Scarlet Star logo prominently on the homepage
+- Preserve spacing
+- Do not distort the logo
+- Do not place it on low-contrast backgrounds
+- Build the visual style around the logo
+
+Suggested UI components:
+- Glass card
+- Scarlet button
+- Outline button
+- Live badge
+- Artist card
+- Show card
+- Submission status badge
+- Audio player card
+- Admin table
+- Profile hero
+- Membership tier card
+
+============================================================
+11. HOMEPAGE EXPERIENCE
+============================================================
+
+The homepage should feel alive.
+
+Above the fold should include:
+- Logo
+- Strong tagline
+- Listen Now button
+- Join / Become an Artist button
+- Live or station status
+
+Possible hero copy:
+"Your voice. Your stage. Your spotlight."
+
+Supporting copy:
+"Scarlet Star Broadcasting gives StarMaker artists a home for their music, a stage for live features, and a community built around discovering rising voices."
+
+Primary CTA:
+Listen Live
+
+Secondary CTA:
+Become a Scarlet Artist
+
+Homepage sections:
+1. Hero
+2. Now Playing / Listen Live
+3. What is Scarlet Star?
+4. Featured Artists
+5. Upcoming Shows
+6. How It Works
+7. Membership Benefits
+8. Submit Your Music
+9. Footer
+
+============================================================
+12. MEMBERSHIP POSITIONING
+============================================================
+
+Membership should be framed around artist promotion and profile services.
+
+Possible membership tier:
+Scarlet Artist Membership - $20/month
+
+Benefits:
+- Dedicated artist page
+- Artist bio and profile
+- Top 5-6 featured media links
+- Custom artist graphics/design assets
+- Social media links
+- Eligibility for featured artist shows
+- Ability to submit songs for live show consideration
+- Community visibility
+- Potential station rotation consideration
+
+Important:
+Never promise guaranteed radio play.
+Never say the subscription is payment for music plays.
+Use "submit for consideration" and "eligible for feature opportunities."
+
+============================================================
+13. ARTIST PAGE BLUEPRINT
+============================================================
+
+Artist pages should feel like premium music landing pages.
+
+Route:
+artist/[slug]
+
+Artist page sections:
+- Hero banner
+- Artist image
+- Artist name
+- Follow/share buttons
+- Bio
+- Top songs / StarMaker embeds
+- Featured performances
+- Upcoming shows
+- Social links
+- Submission/feature history if public
+- Badge area
+
+Artist badges:
+- Featured Artist
+- Live Spotlight
+- Rotation Pick
+- Staff Favorite
+- Community Choice
+- Top Played
+
+============================================================
+14. ADMIN DASHBOARD BLUEPRINT
+============================================================
+
+Admin dashboard sections:
+- Overview
+- Users
+- Artists
+- Submissions
+- Shows
+- Rotation
+- Chat moderation
+- Site settings
+
+Admin submission view:
+- Song title
+- Artist
+- StarMaker link
+- Date submitted
+- Consent status
+- Current status
+- Preview button
+- Approve/reject buttons
+- Add to show
+- Add to rotation candidate
+- Notes
+
+Admin show view:
+- Create show
+- Edit show
+- Assign host
+- Add approved submissions
+- Set live status
+- Manage queue
+
+============================================================
+15. CODING STANDARDS
+============================================================
+
+General:
+- Use TypeScript
+- Use clear component names
+- Keep components reusable
+- Avoid giant files
+- Prefer server components unless client interactivity is needed
+- Use client components only when necessary
+- Keep business logic separate from UI when practical
+- Use environment variables
+- Do not hardcode secrets
+- Validate form input
+- Handle loading, error, and empty states
+
+Suggested folder structure:
+
+src/
+  app/
+    page.tsx
+    layout.tsx
+    login/
+    signup/
+    dashboard/
+    artist/
+      [slug]/
+    shows/
+    listen/
+    membership/
+    admin/
+  components/
+    ui/
+    layout/
+    artist/
+    shows/
+    radio/
+    forms/
+    admin/
+  lib/
+    supabase/
+    auth/
+    utils/
+    constants/
+  types/
+  styles/
+
+Component rules:
+- Components should be named clearly
+- Avoid repeating large blocks of JSX
+- Create reusable cards/buttons/sections
+- Keep styling consistent
+
+Auth rules:
+- Protect dashboard routes
+- Protect admin routes
+- Check user role before allowing admin access
+- Do not rely only on frontend hiding for security
+
+============================================================
+16. AI AGENT OPERATING RULES
+============================================================
+
+Any AI coding agent working on this project must follow these rules:
+
+1. Read this file before making changes.
+2. Do not rewrite the entire project unless explicitly instructed.
+3. Preserve working authentication.
+4. Preserve existing Supabase configuration.
+5. Do not introduce unnecessary dependencies.
+6. Do not remove existing functionality without explaining why.
+7. Make small, testable changes.
+8. Prefer clean, maintainable code over clever code.
+9. Ask before changing the database schema in destructive ways.
+10. Never put API keys, secrets, or service role keys in committed code.
+11. Keep the Scarlet Star brand premium and dark.
+12. Do not use generic placeholder branding if real branding exists.
+13. Focus first on MVP features.
+14. Do not build advanced features before the foundation is stable.
+15. Every public-facing feature should be simple and enjoyable to use.
+
+============================================================
+17. IMMEDIATE NEXT TASKS
+============================================================
+
+Recommended next development order:
+
+1. Clean up homepage design around the logo and brand
+2. Add/finish Listen Live section
+3. Add Membership page with legally careful wording
+4. Add Artist profile data model
+5. Add Artist onboarding flow
+6. Add Song submission form with consent checkbox
+7. Add Admin submissions dashboard
+8. Add Shows page
+9. Add Featured Artists section
+10. Add basic station schedule
+
+Do not start with:
+- Full chat system
+- Push notifications
+- Stream Suite native API
+- Scraper automation
+- Advanced badges
+- Full analytics
+- Complex moderation tools
+
+Those come later.
+
+============================================================
+18. SUCCESS CRITERIA FOR MVP
+============================================================
+
+The MVP is successful when:
+
+- A visitor can understand Scarlet Star within 5 seconds
+- A visitor can listen to the station
+- A user can create an account
+- An artist can create a profile
+- An artist can submit a StarMaker song link
+- The submission includes consent
+- An admin can review submissions
+- The site looks premium and trustworthy
+- The membership page clearly explains what is being sold
+- The site does not imply users are paying for song plays
+- The experience feels simple, polished, and exciting
+
+============================================================
+19. LONG-TERM VISION
+============================================================
+
+Scarlet Star should eventually become the best home on the internet for StarMaker artists.
+
+The long-term ecosystem includes:
+
+- Scarlet Star Broadcasting website
+- 24/7 Zeno station loop
+- Live DJ-hosted shows
+- Featured artist interviews
+- Artist pages
+- Membership platform
+- Stream Suite integration
+- Song drop system
+- Live chat
+- Push notifications
+- DJ tools
+- Community growth
+- Rotation system
+- Media processing pipeline
+- Artist discovery engine
+
+The long-term technical foundation may eventually run on Michael Cloud, a self-hosted infrastructure platform using VPS hosting, Docker, Coolify, Supabase, background workers, and scalable services.
+
+============================================================
+20. FINAL PRODUCT PRINCIPLE
+============================================================
+
+Scarlet Star is not just about playing songs.
+
+Scarlet Star is about making singers feel seen, heard, and celebrated.
+
+Every design choice, feature, database table, button, and workflow should support that goal.
+
+============================================================
+21. PWA, MOBILE, AND AUTH GATE REQUIREMENTS
+============================================================
+
+CRITICAL PIVOT:
+Scarlet Star must be built as a mobile-first responsive website AND as a Progressive Web App.
+
+The site should feel excellent on:
+- Desktop
+- Laptop
+- Tablet
+- Mobile browser
+- Installed mobile PWA app
+
+The PWA version should use the square Scarlet Star logo as the app icon.
+
+The site should prompt eligible users to install the app when they first visit or shortly after they engage with the site.
+
+Important PWA note:
+Browsers control the exact install behavior. On Android/Chrome/Edge, the app can show a custom install banner using the beforeinstallprompt event. On iPhone/iPad, Safari does not allow the same native prompt, so the site should show simple "Add to Home Screen" instructions for iOS users.
+
+PWA MVP requirements:
+- manifest.json or Next.js metadata manifest
+- App name: Scarlet Star
+- Full name: Scarlet Star Broadcasting
+- Square app icon using the square Scarlet Star logo
+- Theme color: deep scarlet red
+- Background color: black / near-black
+- Display mode: standalone
+- Mobile safe-area support
+- Offline fallback page or simple offline message
+- Install prompt component
+- iOS Add to Home Screen helper
+- PWA-ready layout and icons
+- Responsive navigation suitable for mobile
+
+Future PWA features:
+- Push notifications
+- New chat message notifications
+- Direct message notifications
+- Tagged message notifications
+- Show starting notifications
+- Artist song going live notifications
+- Featured artist alerts
+- Submission status updates
+
+Push notification button:
+Eventually, authenticated users should have a native-style button in their dashboard/settings that allows them to turn push notifications on or off.
+
+Example button text:
+"Turn On Notifications"
+
+Possible notification types:
+- You were tagged in chat
+- You received a direct message
+- A show is starting
+- Your submitted song was approved
+- Your song is live now
+- Your featured show is coming up
+
+Do not build the full push notification system until the core site is stable unless specifically instructed.
+However, the PWA structure should be created from the beginning so push notifications can be added later without redesigning the app.
+
+============================================================
+22. AUTHENTICATION GATE STRATEGY
+============================================================
+
+Scarlet Star should NOT expose the full website publicly.
+
+The public-facing website should function as a teaser and conversion page.
+
+Public users may only access:
+- Landing / welcome page
+- Login page
+- Free listener signup
+- Paid singer/artist signup
+- Basic membership teaser
+- Terms of Service
+- Privacy Policy
+- Contact page if needed
+
+Everything else must require authentication.
+
+Locked pages should include:
+- Listen Live
+- Live radio player
+- Artist directory
+- Individual artist pages
+- Shows
+- Show pages
+- Chat
+- Song submissions
+- Member dashboard
+- Artist dashboard
+- DJ dashboard
+- Admin dashboard
+- Community areas
+- Station schedule details
+- Featured artist details
+- Any interactive or high-value content
+
+The landing page should TEASE the experience.
+
+The hard sell should happen AFTER signup/login.
+
+Public homepage goal:
+Make visitors curious enough to create a free listener account or become a Scarlet Artist.
+
+The homepage should NOT reveal the full platform.
+
+Public homepage should include:
+- Logo
+- Short brand statement
+- Teaser copy
+- Strong emotional hook
+- "Login" button
+- "Join Free as Listener" button
+- "Become a Scarlet Artist" button
+- Very brief explanation of what members get
+- No full artist directory
+- No full radio experience
+- No full show pages
+- No full chat access
+
+Possible homepage hero copy:
+"Your voice. Your stage. Your spotlight."
+
+Possible teaser copy:
+"Scarlet Star is a private music community and broadcasting platform built to help rising cover artists get heard, featured, and celebrated."
+
+Possible locked content message:
+"Create a free listener account to enter Scarlet Star."
+
+Possible CTA buttons:
+- Enter as Listener
+- Become a Scarlet Artist
+- Login
+
+============================================================
+23. PUBLIC VS PRIVATE ROUTE RULES
+============================================================
+
+PUBLIC ROUTES:
+
+/
+Landing page only
+
+/login
+Login page
+
+/signup
+Signup choice page
+
+/signup/listener
+Free listener signup
+
+/signup/artist
+Singer/artist signup and membership onboarding
+
+/membership
+Public teaser for artist membership, but not the full hard sell
+
+/terms
+Terms of Service
+
+/privacy
+Privacy Policy
+
+/contact
+Optional public contact page
+
+PRIVATE AUTHENTICATED ROUTES:
+
+/home
+Authenticated member home
+
+/listen
+Live station player
+
+/artists
+Artist directory
+
+/artist/[slug]
+Artist profile pages
+
+/shows
+Show list
+
+/shows/[slug]
+Individual show pages
+
+/chat
+Global chat
+
+/chat/[room]
+Specific chat rooms
+
+/dashboard
+User dashboard
+
+/dashboard/artist
+Artist dashboard
+
+/dashboard/dj
+DJ dashboard
+
+/admin
+Admin dashboard
+
+/submit
+Song submission page
+
+/settings
+Account and notification settings
+
+============================================================
+24. AUTH MIDDLEWARE REQUIREMENTS
+============================================================
+
+Use middleware or server-side auth checks to protect private routes.
+
+Do not rely only on hiding links in the UI.
+
+If a logged-out user tries to access a private route, redirect them to login or the public landing page.
+
+Suggested behavior:
+- Logged-out user visits /listen -> redirect to /login
+- Logged-out user visits /artists -> redirect to /login
+- Logged-out user visits /chat -> redirect to /login
+- Logged-in listener visits /admin -> show unauthorized or redirect
+- Logged-in artist visits /admin -> show unauthorized or redirect
+- Logged-in admin visits /admin -> allow access
+
+Role-based protection:
+- Listener routes require authentication
+- Artist routes require artist role or higher
+- DJ routes require DJ role or admin
+- Admin routes require admin role
+
+============================================================
+25. LANDING PAGE STRATEGY
+============================================================
+
+The landing page should be beautiful, simple, and conversion-focused.
+
+It should not feel like a full website.
+It should feel like the front door to a private music platform.
+
+Landing page structure:
+
+1. Hero
+- Logo
+- Tagline
+- Short emotional pitch
+- Login button
+- Join Free button
+- Become a Scarlet Artist button
+
+2. Teaser Section
+Briefly explain:
+- Scarlet Star is a private broadcasting community
+- Artists can get a professional page
+- Listeners can discover rising voices
+- Shows and community features are inside
+
+3. Artist Teaser
+Do not show full artist profiles publicly.
+Show a blurred/locked preview style if desired.
+
+Example:
+"Featured artists, live shows, and song drops are available inside Scarlet Star."
+
+4. Membership Teaser
+Explain the paid artist membership carefully.
+
+Allowed wording:
+"Scarlet Artist Membership includes a dedicated artist page, promotional design assets, social links, featured show eligibility, and submission access."
+
+Avoid wording:
+"Pay to get played"
+"Guaranteed airplay"
+"Buy song plays"
+
+5. Final CTA
+"Create your free listener account to enter Scarlet Star."
+
+============================================================
+26. MOBILE-FIRST DESIGN REQUIREMENTS
+============================================================
+
+Mobile must not be treated as secondary.
+
+Every page must be designed to work beautifully on a phone.
+
+Mobile requirements:
+- Large readable text
+- Easy thumb-friendly buttons
+- Bottom navigation or clean mobile menu after login
+- No tiny table layouts on mobile
+- Cards should stack cleanly
+- Forms should be easy to complete on mobile
+- Audio player should remain usable on small screens
+- Chat should be usable on mobile
+- Dashboard should be simplified for mobile
+- Install app prompt should feel native and non-annoying
+
+Authenticated mobile navigation should prioritize:
+- Home
+- Listen
+- Chat
+- Shows
+- Profile
+
+Admin dashboards may be desktop-first but should still be usable on mobile for quick actions.
+
+============================================================
+27. UPDATED MVP REQUIREMENTS
+============================================================
+
+The MVP must now include:
+
+1. Mobile-first responsive design
+2. PWA setup
+3. Square Scarlet Star app icon
+4. Install app prompt
+5. iOS Add to Home Screen helper
+6. Public teaser landing page
+7. Supabase authentication
+8. Free listener signup
+9. Paid singer/artist signup path
+10. Route protection for all private pages
+11. Authenticated member home page
+12. Locked live/listen section
+13. Locked artist area
+14. Locked show area
+15. Locked chat area or chat placeholder
+16. Locked submission page
+17. Admin-only dashboard foundation
+18. Membership wording that does not imply paid radio play
+
+The public site should sell curiosity.
+The private site should sell the full dream.

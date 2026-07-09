@@ -1,0 +1,29 @@
+Read the following files in order:
+
+1. AI_PROJECT_BRIEF.txt
+
+2. AI_AGENT_RULES.txt
+
+3. AI_TASK_CURRENT.txt
+
+Follow all instructions.
+
+Inspect the project.
+
+Summarize your findings.
+
+Complete every task listed in AI_TASK_CURRENT.txt.
+
+Run the production build.
+
+If successful:
+
+Commit using conventional commits.
+
+Push to GitHub.
+
+If unsuccessful:
+
+Do not push.
+
+Explain every blocking issue.

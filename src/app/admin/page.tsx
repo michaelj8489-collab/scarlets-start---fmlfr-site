@@ -2,6 +2,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import StarMakerScraper from '@/components/StarMakerScraper'
 import { logout } from '@/app/auth/actions'
+import Link from 'next/link'
 
 export default async function AdminPage() {
   const supabase = await createClient()
@@ -42,9 +43,9 @@ export default async function AdminPage() {
           </div>
           
           <div className="flex gap-4">
-            <a href="/dashboard" className="px-6 py-2 bg-transparent text-gray-300 hover:text-white font-bold rounded transition-all uppercase tracking-widest text-xs flex items-center">
+            <Link href="/dashboard" className="px-6 py-2 bg-transparent text-gray-300 hover:text-white font-bold rounded transition-all uppercase tracking-widest text-xs flex items-center">
               User Dashboard
-            </a>
+            </Link>
             <form action={logout}>
               <button className="px-6 py-2 bg-transparent border border-scarlet text-scarlet hover:bg-scarlet/10 font-bold rounded transition-all uppercase tracking-widest text-xs">
                 Log Out

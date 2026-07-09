@@ -1,0 +1,149 @@
+CURRENT OBJECTIVE
+
+Build Phase 1 MVP foundation only.
+
+Read AI_PROJECT_BRIEF.txt and AI_AGENT_RULES.txt before making changes.
+
+============================================================
+PRIMARY GOAL
+============================================================
+
+Stabilize the current Scarlet Star Next.js project and prepare the Phase 1 MVP foundation.
+
+This task is NOT to build the full platform.
+
+============================================================
+TASKS
+============================================================
+
+1. Inspect the project structure.
+
+2. Check for build, TypeScript, ESLint, import, routing, dependency, or configuration issues.
+
+3. Fix any issues that prevent the app from building or deploying cleanly.
+
+4. Preserve the existing Supabase authentication setup.
+
+5. Do not remove existing working functionality.
+
+6. Optimize the current project where reasonable, but do not perform a full rewrite.
+
+7. Build or improve the responsive public teaser homepage.
+
+8. Make sure the homepage is mobile-first and visually aligned with the Scarlet Star brand:
+   - dark / black background
+   - scarlet red accents
+   - premium music platform feel
+   - logo-centered design
+
+9. Add or verify PWA basics:
+   - app manifest
+   - app name: Scarlet Star
+   - full name: Scarlet Star Broadcasting
+   - standalone display mode
+   - black / near-black background color
+   - scarlet theme color
+   - square Scarlet Star app icon
+   - mobile-friendly metadata
+   - install prompt if practical
+   - iOS Add to Home Screen helper if practical
+
+10. Set up public/private route structure.
+
+Public routes:
+- /
+- /login
+- /signup
+- /signup/listener
+- /signup/artist
+- /membership
+- /terms
+- /privacy
+- /contact if it already exists or is easy to add
+
+Private routes requiring authentication:
+- /home
+- /listen
+- /artists
+- /artist/[slug]
+- /shows
+- /shows/[slug]
+- /chat
+- /submit
+- /dashboard
+- /dashboard/artist
+- /dashboard/dj
+- /admin
+- /settings
+
+11. Create simple placeholder pages for private MVP routes if they do not exist yet.
+
+Placeholder pages should be clean, branded, and clearly say the section is coming soon or under construction.
+
+12. Protect private routes using middleware or server-side auth checks.
+
+Do not rely only on hiding links in the UI.
+
+13. Make sure logged-out users are redirected to login or the landing page if they try to access private routes.
+
+14. Make sure admin routes are clearly prepared for admin-only access, even if the full admin system is not built yet.
+
+============================================================
+DO NOT BUILD YET
+============================================================
+
+Do NOT begin:
+
+- Full chat system
+- Push notifications
+- Stream Suite integration
+- Python workers
+- StarMaker scraper integration
+- Payments
+- Stripe
+- Full admin tools
+- Full artist profile system
+- Full song submission system
+- Live DJ queue
+- Rotation engine
+- Complex database migrations
+
+Only create placeholders/foundations for these areas if needed.
+
+============================================================
+STOPPING POINT
+============================================================
+
+Stop when:
+
+1. The app builds successfully.
+2. Supabase auth is preserved.
+3. The public teaser homepage works.
+4. The site is mobile responsive.
+5. PWA basics are in place.
+6. Private placeholder routes exist.
+7. Private routes are protected.
+8. There are no major build errors.
+
+============================================================
+GIT WORKFLOW
+============================================================
+
+After finishing:
+
+1. Run the production build.
+
+2. If the build passes:
+   - Stage all changed files.
+   - Commit the changes.
+   - Use this commit message:
+
+     Phase 1 Foundation: stabilize build, PWA setup, route protection, responsive MVP shell
+
+   - Push to GitHub.
+
+3. If the build fails:
+   - Do NOT commit.
+   - Do NOT push.
+   - Stop and explain every blocking issue.
+   - List what needs to be fixed next.

@@ -1,0 +1,43 @@
+================================================
+
+AI AGENT RULES
+
+================================================
+
+Before doing anything:
+
+1. Read AI_PROJECT_BRIEF.txt completely.
+
+2. Read AI_TASK_CURRENT.txt.
+
+3. Do NOT remove working functionality.
+
+4. Preserve Supabase authentication.
+
+5. Preserve branding.
+
+6. Use TypeScript.
+
+7. Make reusable components.
+
+8. Mobile-first always.
+
+9. PWA compatible always.
+
+10. Do not expose secrets.
+
+11. Build small, testable changes.
+
+12. Do not build future roadmap items unless requested.
+
+13. Verify production build before committing.
+
+14. If build passes:
+    Commit and push.
+
+15. If build fails:
+    Stop.
+    Explain why.
+    Do not push.
+
+================================================

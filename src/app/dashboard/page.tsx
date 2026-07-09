@@ -1,61 +1,62 @@
-import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
-import { logout } from '@/app/auth/actions'
+import { logout } from "@/app/auth/actions"
+import { createClient } from "@/utils/supabase/server"
+import Link from "next/link"
+import { redirect } from "next/navigation"
+
+const dashboardLinks = [
+  { href: "/home", title: "Member Home", body: "Enter the private Scarlet Star member experience." },
+  { href: "/listen", title: "Listen Live", body: "Open the locked station player foundation." },
+  { href: "/artists", title: "Artists", body: "Preview the private artist discovery shell." },
+  { href: "/submit", title: "Submit Music", body: "Prepare for StarMaker song submissions with consent." },
+]
 
 export default async function DashboardPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
-  if (!user) {
-    redirect('/login')
-  }
+  if (!user) redirect("/login")
 
-  const username = user.user_metadata?.username || user.email?.split('@')[0] || 'User'
+  const username = user.user_metadata?.username || user.email?.split("@")[0] || "User"
 
   return (
-    <div 
-      className="flex-grow flex items-center justify-center relative overflow-hidden min-h-[calc(100vh-97px)]"
-      style={{
-        backgroundImage: 'url("/images/Scarlet Star Broadcasting.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="absolute inset-0 bg-black/60 z-0 backdrop-blur-sm"></div>
-
-      <div className="relative z-10 w-full max-w-4xl px-6 py-12 bg-black/50 backdrop-blur-md border border-scarlet/30 rounded-2xl shadow-[0_0_40px_rgba(193,18,31,0.2)]">
-        <div className="flex justify-between items-center mb-10 border-b border-scarlet/20 pb-6">
+    <main className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-black px-4 py-10 sm:px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,18,31,0.26),transparent_34%),linear-gradient(135deg,#050505,#120508_54%,#030303)]" />
+      <section className="relative z-10 mx-auto max-w-5xl">
+        <div className="flex flex-col gap-5 border-b border-scarlet/20 pb-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h1 className="text-3xl font-serif font-bold text-white mb-2 tracking-widest uppercase">
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-scarlet">Dashboard</p>
+            <h1 className="mt-3 font-serif text-3xl font-bold uppercase tracking-[0.1em] text-white sm:text-4xl">
               Welcome, <span className="text-scarlet">{username}</span>
             </h1>
-            <p className="text-gray-400 font-sans tracking-wide">
-              Your Scarlet Star Dashboard
+            <p className="mt-3 text-sm leading-6 text-gray-400">
+              Your Phase 1 Scarlet Star member shell is ready.
             </p>
           </div>
-          
           <form action={logout}>
-            <button className="px-6 py-2 bg-transparent border border-scarlet text-scarlet hover:bg-scarlet/10 font-bold rounded transition-all uppercase tracking-widest text-xs">
+            <button className="rounded-lg border border-scarlet px-5 py-3 text-xs font-bold uppercase tracking-[0.18em] text-scarlet transition hover:bg-scarlet hover:text-white">
               Log Out
             </button>
           </form>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-black/60 border border-scarlet/20 p-6 rounded-xl hover:border-scarlet/50 transition-colors">
-            <h3 className="text-xl font-serif text-white mb-3 uppercase tracking-wider">Your Broadcasts</h3>
-            <p className="text-gray-400 font-sans text-sm mb-4">Manage your streams, recordings, and audience analytics.</p>
-            <button className="text-scarlet text-sm font-bold uppercase tracking-widest hover:text-white transition-colors">Enter Studio →</button>
-          </div>
-
-          <div className="bg-black/60 border border-scarlet/20 p-6 rounded-xl hover:border-scarlet/50 transition-colors">
-            <h3 className="text-xl font-serif text-white mb-3 uppercase tracking-wider">Account Settings</h3>
-            <p className="text-gray-400 font-sans text-sm mb-4">Update your profile, change your password, or manage subscriptions.</p>
-            <button className="text-scarlet text-sm font-bold uppercase tracking-widest hover:text-white transition-colors">Manage →</button>
-          </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {dashboardLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg border border-scarlet/20 bg-black/55 p-6 transition hover:border-scarlet/55 hover:bg-scarlet/10"
+            >
+              <h2 className="font-serif text-xl font-bold uppercase tracking-[0.1em] text-white">
+                {link.title}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-gray-400">{link.body}</p>
+              <span className="mt-5 inline-flex text-xs font-bold uppercase tracking-[0.18em] text-scarlet">
+                Open -&gt;
+              </span>
+            </Link>
+          ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }

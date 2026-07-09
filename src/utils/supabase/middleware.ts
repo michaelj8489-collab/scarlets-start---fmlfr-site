@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { isAdminRoute, isPrivateRoute } from '@/lib/routes'
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -15,7 +16,7 @@ export async function updateSession(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({
             request,
           })
@@ -31,15 +32,16 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Protect routes here
-  if (!user && (request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/admin'))) {
+  const pathname = request.nextUrl.pathname
+
+  if (!user && isPrivateRoute(pathname)) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
+    url.searchParams.set('message', 'Create a free listener account or login to enter Scarlet Star.')
     return NextResponse.redirect(url)
   }
 
-  // Admin access check (simple example assuming user_metadata has 'role')
-  if (user && request.nextUrl.pathname.startsWith('/admin')) {
+  if (user && isAdminRoute(pathname)) {
     const role = user.user_metadata?.role
     if (role !== 'admin') {
       const url = request.nextUrl.clone()

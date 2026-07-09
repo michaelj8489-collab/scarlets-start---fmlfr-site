@@ -1,111 +1,53 @@
-import { signup } from '@/app/auth/actions'
-import { redirect } from 'next/navigation'
-import { createClient } from '@/utils/supabase/server'
+import Link from "next/link"
 
-export default async function SignupPage({ searchParams }: { searchParams: { message: string } }) {
-  // Check if user is already logged in
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  
-  if (user) {
-    redirect('/dashboard')
-  }
+const signupOptions = [
+  {
+    href: "/signup/listener",
+    title: "Join Free as Listener",
+    body: "Create a free account to enter the private Scarlet Star experience, listen, and discover rising cover artists.",
+    cta: "Enter as Listener",
+  },
+  {
+    href: "/signup/artist",
+    title: "Become a Scarlet Artist",
+    body: "Start the artist path for profile services, media highlights, social links, and feature eligibility.",
+    cta: "Artist Signup",
+  },
+]
 
+export default function SignupPage() {
   return (
-    <div 
-      className="flex-grow flex items-center justify-center relative overflow-hidden min-h-[calc(100vh-97px)]"
-      style={{
-        backgroundImage: 'url("/images/Scarlet Star Broadcasting.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      <div className="absolute inset-0 bg-black/70 z-0 backdrop-blur-sm"></div>
-      
-      {/* Background Font Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center z-0 opacity-10 pointer-events-none overflow-hidden">
-        <span className="font-serif text-[15vw] leading-none whitespace-nowrap text-white font-black tracking-tighter">
-          LOADING THE STATION...
-        </span>
-      </div>
+    <main className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-black px-4 py-12 sm:px-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,18,31,0.3),transparent_34%),linear-gradient(135deg,#050505,#110509_56%,#030303)]" />
+      <section className="relative z-10 mx-auto flex min-h-[60svh] max-w-5xl flex-col justify-center">
+        <p className="text-xs font-bold uppercase tracking-[0.28em] text-scarlet">
+          Choose your path
+        </p>
+        <h1 className="mt-4 font-serif text-4xl font-black uppercase tracking-[0.08em] text-white sm:text-5xl">
+          Enter Scarlet Star
+        </h1>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-gray-300">
+          Start with the role that fits you today. The full music community opens after account creation.
+        </p>
 
-      <div className="relative z-10 w-full max-w-md px-6 py-12 bg-black/60 backdrop-blur-md border border-scarlet/30 rounded-2xl shadow-[0_0_40px_rgba(193,18,31,0.3)]">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-serif font-bold text-white mb-2 uppercase tracking-widest">
-            Register
-          </h2>
-          <p className="text-gray-400 font-sans text-sm tracking-wide">
-            Create your Scarlet Star account
-          </p>
+        <div className="mt-9 grid gap-5 md:grid-cols-2">
+          {signupOptions.map((option) => (
+            <Link
+              key={option.href}
+              href={option.href}
+              className="rounded-lg border border-scarlet/25 bg-black/55 p-6 transition hover:border-scarlet/65 hover:bg-scarlet/10"
+            >
+              <h2 className="font-serif text-2xl font-bold uppercase tracking-[0.1em] text-white">
+                {option.title}
+              </h2>
+              <p className="mt-4 text-sm leading-6 text-gray-400">{option.body}</p>
+              <span className="mt-6 inline-flex rounded-lg bg-scarlet px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white">
+                {option.cta}
+              </span>
+            </Link>
+          ))}
         </div>
-
-        <form className="flex flex-col gap-5">
-          <div className="flex flex-col gap-2">
-            <label className="text-gray-300 font-sans text-xs uppercase tracking-widest font-semibold ml-1">
-              Username
-            </label>
-            <input 
-              name="username"
-              type="text" 
-              required
-              className="w-full bg-black/50 border border-scarlet/30 p-4 rounded-lg text-white font-sans focus:border-scarlet focus:ring-1 focus:ring-scarlet outline-none transition-all placeholder-gray-600"
-              placeholder="Desired username..."
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-gray-300 font-sans text-xs uppercase tracking-widest font-semibold ml-1">
-              Email Address
-            </label>
-            <input 
-              name="email"
-              type="email" 
-              required
-              className="w-full bg-black/50 border border-scarlet/30 p-4 rounded-lg text-white font-sans focus:border-scarlet focus:ring-1 focus:ring-scarlet outline-none transition-all placeholder-gray-600"
-              placeholder="Your email address..."
-            />
-            <p className="text-gray-500 text-[10px] uppercase tracking-wider ml-1 mt-1">
-              Used for authentication and recovery.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-gray-300 font-sans text-xs uppercase tracking-widest font-semibold ml-1">
-              Password
-            </label>
-            <input 
-              name="password"
-              type="password" 
-              required
-              className="w-full bg-black/50 border border-scarlet/30 p-4 rounded-lg text-white font-sans focus:border-scarlet focus:ring-1 focus:ring-scarlet outline-none transition-all placeholder-gray-600"
-              placeholder="••••••••"
-            />
-          </div>
-
-          {searchParams?.message && (
-            <div className="p-3 bg-red-900/30 border border-red-500/50 rounded text-red-200 text-sm text-center">
-              {searchParams.message}
-            </div>
-          )}
-
-          <button 
-            formAction={signup}
-            className="w-full mt-4 py-4 bg-transparent border-2 border-scarlet text-scarlet hover:bg-scarlet/10 font-bold rounded-lg transition-all duration-300 uppercase tracking-widest text-sm"
-          >
-            Create Account
-          </button>
-        </form>
-
-        <div className="mt-8 text-center">
-          <p className="text-gray-400 text-sm font-sans">
-            Already have an account?{' '}
-            <a href="/login" className="text-scarlet hover:text-white transition-colors font-semibold">
-              Login here
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
