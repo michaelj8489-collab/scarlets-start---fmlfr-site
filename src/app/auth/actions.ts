@@ -62,8 +62,7 @@ export async function signup(formData: FormData) {
     redirect(`${signupPath}?message=${encodeURIComponent(error.message)}`)
   }
 
-  // Redirect to login or success page
-  redirect('/login?message=Check your email to confirm your account')
+  redirect(`/signup/check-email?email=${encodeURIComponent(email)}`)
 }
 
 export async function logout() {

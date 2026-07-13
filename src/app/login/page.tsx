@@ -3,8 +3,9 @@ import { createClient } from "@/utils/supabase/server"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 
-export default async function LoginPage({ searchParams }: { searchParams: Promise<{ message?: string }> }) {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ message?: string; status?: string }> }) {
   const params = await searchParams
+  const isSuccessMessage = params.status === "success"
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
 
@@ -46,7 +47,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           </label>
 
           {params.message && (
-            <div className="rounded border border-red-500/50 bg-red-950/35 p-3 text-center text-sm text-red-200">
+            <div className={`rounded border p-3 text-center text-sm ${isSuccessMessage ? "border-emerald-500/45 bg-emerald-950/25 text-emerald-100" : "border-red-500/50 bg-red-950/35 text-red-200"}`}>
               {params.message}
             </div>
           )}
