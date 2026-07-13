@@ -1,13 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
+import { createClient } from "@/utils/supabase/server"
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/membership", label: "Membership" },
-  { href: "/login", label: "Login" },
-]
+export async function SiteHeader() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const isAdmin = user?.user_metadata?.role === "admin"
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/membership", label: "Membership" },
+    ...(user ? [{ href: "/dashboard", label: "Dashboard" }] : [{ href: "/login", label: "Login" }]),
+    ...(isAdmin ? [{ href: "/admin", label: "Admin" }] : []),
+  ]
 
-export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-scarlet/25 bg-[#050505]/90 px-4 py-3 shadow-lg shadow-black/30 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4">

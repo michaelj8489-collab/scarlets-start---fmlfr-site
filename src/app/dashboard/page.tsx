@@ -17,6 +17,13 @@ export default async function DashboardPage() {
   if (!user) redirect("/login")
 
   const username = user.user_metadata?.username || user.email?.split("@")[0] || "User"
+  const isAdmin = user.user_metadata?.role === "admin"
+  const visibleDashboardLinks = [
+    ...dashboardLinks,
+    ...(isAdmin
+      ? [{ href: "/admin", title: "Admin Dashboard", body: "Access admin tools, including the StarMaker scraper." }]
+      : []),
+  ]
 
   return (
     <main className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-black px-4 py-10 sm:px-6">
@@ -40,7 +47,7 @@ export default async function DashboardPage() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {dashboardLinks.map((link) => (
+          {visibleDashboardLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
