@@ -15,7 +15,9 @@ const signupOptions = [
   },
 ]
 
-export default function SignupPage() {
+export default async function SignupPage({ searchParams }: { searchParams: Promise<{ message?: string }> }) {
+  const params = await searchParams
+
   return (
     <main className="relative min-h-[calc(100svh-73px)] overflow-hidden bg-black px-4 py-12 sm:px-6">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(193,18,31,0.3),transparent_34%),linear-gradient(135deg,#050505,#110509_56%,#030303)]" />
@@ -29,6 +31,11 @@ export default function SignupPage() {
         <p className="mt-5 max-w-2xl text-base leading-7 text-gray-300">
           Start with the role that fits you today. The full music community opens after account creation.
         </p>
+        {params.message && (
+          <p className="mt-5 max-w-2xl rounded border border-red-500/40 bg-red-950/35 p-3 text-sm text-red-200">
+            {params.message}
+          </p>
+        )}
 
         <div className="mt-9 grid gap-5 md:grid-cols-2">
           {signupOptions.map((option) => (

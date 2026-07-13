@@ -41,9 +41,10 @@ export async function signup(formData: FormData) {
   const password = formData.get('password') as string
   const accountType = formData.get('accountType') as string
   const role = accountType === 'artist' ? 'artist' : 'listener'
+  const signupPath = role === 'artist' ? '/signup/artist' : '/signup/listener'
 
   if (!email || !password || !username) {
-    redirect('/signup?message=Username, Email, and Password are required.')
+    redirect(`${signupPath}?message=Username, Email, and Password are required.`)
   }
 
   const { error } = await supabase.auth.signUp({
@@ -58,7 +59,7 @@ export async function signup(formData: FormData) {
   })
 
   if (error) {
-    redirect(`/signup?message=${encodeURIComponent(error.message)}`)
+    redirect(`${signupPath}?message=${encodeURIComponent(error.message)}`)
   }
 
   // Redirect to login or success page
